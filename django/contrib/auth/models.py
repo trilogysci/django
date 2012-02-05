@@ -8,7 +8,7 @@ from django.utils.crypto import get_random_string
 from django.utils.encoding import smart_str
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
-from django.config import settings
+from django.conf import settings
 
 from django.contrib import auth
 # UNUSABLE_PASSWORD is still imported here for backwards compatibility
@@ -222,7 +222,7 @@ class User(models.Model):
 
     Username and password are required. Other fields are optional.
     """
-    username_length = settings.get('USERNAME_LENGTH',30)
+    username_length = getattr(settings,'USERNAME_LENGTH',30)
     username = models.CharField(_('username'), max_length=username_length, unique=True,
         help_text=_('Required. %d characters or fewer. Letters, numbers and '
                     '@/./+/-/_ characters'%username_length))
