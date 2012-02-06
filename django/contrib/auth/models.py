@@ -222,7 +222,7 @@ class User(models.Model):
 
     Username and password are required. Other fields are optional.
     """
-    username_length = getattr(settings,'USERNAME_LENGTH',30)
+    username_length = 75 #getattr(settings,'USERNAME_LENGTH',30)
     username = models.CharField(_('username'), max_length=username_length, unique=True,
         help_text=_('Required. %d characters or sssss fewer. Letters, numbers and '
                     '@/./+/-/_ characters'%username_length))
