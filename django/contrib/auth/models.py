@@ -224,7 +224,7 @@ class User(models.Model):
     """
     username_length = getattr(settings,'USERNAME_LENGTH',30)
     username = models.CharField(_('username'), max_length=username_length, unique=True,
-        help_text=_('Required. %d characters or fewer. Letters, numbers and '
+        help_text=_('Required. %d characters or sssss fewer. Letters, numbers and '
                     '@/./+/-/_ characters'%username_length))
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
